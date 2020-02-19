@@ -1,9 +1,8 @@
 const basePage = require('./basePage');
-const locator = require('../utils/locator');
 
 let userNameSelection, descriptionInput, durationInput, datePicker, createButton, cell, result;
 let ExercisePage = basePage;
-// not working
+
 ExercisePage.prototype.findExerciseInputAndButton = async function () {
     userNameSelection = await this.findById("userNameSelection");
 
@@ -33,28 +32,10 @@ ExercisePage.prototype.findExerciseInputAndButton = async function () {
     return result;
 };
 
-
-// Page.prototype.submitKeywordAndGetResult = async function() {
-//     await this.findInputAndButton();
-//
-//     await this.write(searchInput, fakeNameKeyword);
-//     console.log('search input is ' + fakeNameKeyword);
-//
-//     await searchButton.click();
-//     console.log("clicked search button");
-//     resultStat = await this.findById(resultConfirmationSelectorId);
-//     return await this.driver.wait(async function () {
-//         return await resultStat.getText();
-//     }, 5000);
-// };
-
 ExercisePage.prototype.findThroughId = async function (id) {
-    // console.log("homePage -- findById");
     result = await this.findById(id);
-    // console.log("result is ", result);
 
     return await this.driver.wait(async function () {
-        // console.log("result text is ", result.getText());
         return await result.getText();
     }, 5000);
 };
@@ -75,5 +56,4 @@ ExercisePage.prototype.findThroughTagName = async function (tag) {
     }, 5000);
 };
 
-// module.exports = Page;
 module.exports = ExercisePage;

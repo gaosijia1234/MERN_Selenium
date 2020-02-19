@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
-
-//  这个table只define了一个东西就是username， username里面的东西都是对username的限制和定义
 const userSchema = new Schema(
     {
         username: {

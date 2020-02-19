@@ -1,4 +1,4 @@
-const { describe, it, after, before } = require('mocha');
+const { describe, it } = require('mocha');
 const Page = require('../lib/homePage');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -11,9 +11,9 @@ process.on('unhandledRejection', () => { });
 
 (async function example() {
     try {
-        describe('Home page automated testing', async function () {
+        describe('Home page automated testing.', async function () {
             this.timeout(5000);
-            let driver, page;
+            let page;
 
             beforeEach(async () => {
                 page = new Page();
@@ -25,7 +25,7 @@ process.on('unhandledRejection', () => { });
                 await page.quit();
             });
 
-            it('find all the tags on the home page', async () => {
+            it('Find all the tags on the home page.', async () => {
                 const exercise = await page.findThroughId("exercises");
                 expect(exercise).to.equal('Exercises');
 
@@ -36,15 +36,18 @@ process.on('unhandledRejection', () => { });
                 expect(createUser).to.equal('Create User');
             });
 
-            it('Create User Tag -- contents are displayed ', async () => {
+            it('Logged Exercise title is displayed.', async () => {
                 const tag = await page.findThroughTagName("h3");
                 expect(tag).to.equal('Logged Exercises');
+            });
+
+            it('Table is displayed with all the titles.', async () => {
+                const table = await page.findThroughTagName("thead");
+                expect(table).to.equal("Username Description Duration Date Actions");
             });
 
         });
     } catch (ex) {
         console.log(new Error(ex.message));
-    } finally {
-
     }
 })();

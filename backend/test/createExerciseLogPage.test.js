@@ -1,4 +1,4 @@
-const {describe, it, after, before} = require('mocha');
+const { describe, it } = require('mocha');
 const ExercisePage = require('../lib/createExerciseLogPage');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -14,7 +14,7 @@ process.on('unhandledRejection', () => {
     try {
         describe('Create New Exercise Log page automated testing', async function () {
             this.timeout(5000);
-            let driver, page;
+            let page;
 
             beforeEach(async () => {
                 page = new ExercisePage();
@@ -27,8 +27,8 @@ process.on('unhandledRejection', () => {
                 await page.quit();
             });
 
-            // TODO: worked
             it('Create New Exercise Log -- check if contents are displayed ', async () => {
+
                 const title = await page.findThroughTagName("h3");
                 expect(title).to.equal('Create New Exercise Log');
 
@@ -54,13 +54,6 @@ process.on('unhandledRejection', () => {
                 expect(result.datePickerEnableFlag).to.equal(true);
                 expect(result.createButtonText).to.equal('Create Exercise Log');
             });
-
-            // TODO: Front-end needs to add action after click on submit button
-            // it('put name in input box and click create-user button', async () => {
-            //     const result = await page.submitKeywordAndGetResult();
-            //     expect(result.length).to.be.above(3);
-            // });
-
 
         });
     } catch (ex) {
