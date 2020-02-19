@@ -1,0 +1,10 @@
+# Backend
+backend/node_modules
+backend/mochawesome-report
+backend/.env
+backend/package-lock.json
+
+# Client
+client/node_modules
+client/package-lock.json
+client/build
