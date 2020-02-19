@@ -1,7 +1,6 @@
-const express = require('express'); // for backend schema 
+const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-// const bodyParser = require('body-parser');
 const cors = require('cors');
 
 dotenv.config()
@@ -11,13 +10,11 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // middleware 
-// app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 
 // connect to db 
-// ATLAS_URI is the name defined in the env file 
-const uri = process.env.ATLAS_URI;
+const uri = process.env.MONGODB_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true })
     .then(() => console.log("connected to mongodb"))
     .catch(err => console.log(err));
@@ -26,7 +23,6 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true })
 const exerciseRouter = require('./routes/exercises');
 const usersRouter = require('./routes/users');
 
-// middleware -> codes runs before the routes controller runs 
 // this tells the server what the routes are going to be using 
 app.use('/exercises', exerciseRouter);
 app.use('/users', usersRouter);

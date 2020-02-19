@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DB_URI = process.env.ATLAS_URI;;
+const DB_URI = process.env.MONGODB_URI;
 
 function connect() {
   return new Promise((resolve, reject) => {

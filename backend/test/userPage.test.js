@@ -19,7 +19,6 @@ process.on('unhandledRejection', () => { });
                 page = new Page();
                 driver = page.driver;
                 await page.visit(`${process.env.TESTING_URL}/user`);
-                // await page.visit("http://localhost:3000/user");
             });
 
             afterEach(async () => {

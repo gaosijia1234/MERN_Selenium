@@ -19,7 +19,7 @@ process.on('unhandledRejection', () => {
             beforeEach(async () => {
                 page = new ExercisePage();
                 driver = page.driver;
-                await page.visit("http://localhost:3000/create");
+                await page.visit(`${process.env.TESTING_URL}/create`);
 
             });
 
