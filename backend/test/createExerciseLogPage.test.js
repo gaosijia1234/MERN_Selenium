@@ -47,7 +47,7 @@ process.on('unhandledRejection', () => {
             });
 
             it('find the input box and button', async () => {
-                const result = await page.findInputAndButton();
+                const result = await page.findExerciseInputAndButton();
                 expect(result.userNameSelectionEnableFlag).to.equal(true);
                 expect(result.descriptionInputEnableFlag).to.equal(true);
                 expect(result.durationInputEnableFlag).to.equal(true);

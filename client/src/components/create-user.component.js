@@ -9,7 +9,8 @@ export default class CreateUser extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      username: ''
+      username: '',
+      showUsername: false
     }
   }
 
@@ -26,29 +27,29 @@ export default class CreateUser extends Component {
       username: this.state.username
     }
 
-    console.log(user);
-
     axios.post('http://localhost:5000/users/add', user)
       .then(res => console.log(res.data));
 
     this.setState({
-      username: ''
-    })
+      username: '',
+      showUsername: true
+    });
   }
 
   render() {
     return (
       <div>
         <h3 id="CreateNewUserH3">Create New User</h3>
+        <span id="userAdded">{this.state.showUsername ? 'User created successfully!' : null}</span>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
+          <div className="form-group">
             <label id="usernameId">Username: </label>
             <input type="text"
-                required
-                className="form-control"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
-                />
+              required
+              className="form-control"
+              value={this.state.username}
+              onChange={this.onChangeUsername}
+            />
           </div>
           <div className="form-group">
             <input id="inputId" type="submit" value="Create User" className="btn btn-primary" />

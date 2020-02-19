@@ -1,10 +1,10 @@
-let ExercisePage = require('./basePage');
+const basePage = require('./basePage');
 const locator = require('../utils/locator');
 
 let userNameSelection, descriptionInput, durationInput, datePicker, createButton, cell, result;
-
+let ExercisePage = basePage;
 // not working
-ExercisePage.prototype.findInputAndButton = async function () {
+ExercisePage.prototype.findExerciseInputAndButton = async function () {
     userNameSelection = await this.findById("userNameSelection");
 
     descriptionInput = await this.findById("descriptionInput");

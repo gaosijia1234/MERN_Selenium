@@ -26,7 +26,7 @@ process.on('unhandledRejection', () => { });
             });
 
             it('find the input box and button', async () => {
-                const result = await page.findInputAndButton();
+                const result = await page.findUserInputAndButton();
                 expect(result.inputEnabled).to.equal(true);
                 expect(result.buttonText).to.include('Create User');
             });

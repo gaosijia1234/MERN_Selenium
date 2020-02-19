@@ -5,12 +5,12 @@ const fake = require('../utils/fakeData');
 const searchInputSelectorId = locator.searchInputSelectorId;
 const searchButtonSelectorName = locator.searchButtonSelectorName;
 const resultConfirmationSelectorId = locator.resultConfirmationId;
-
+//
 const fakeNameKeyword = fake.nameKeyword;
 
 let searchInput, searchButton, resultStat, result;
 
-UserPage.prototype.findInputAndButton = async function () {
+UserPage.prototype.findUserInputAndButton = async function () {
     // searchInput = await this.findByName(searchInputSelectorId);
     // searchButton = await this.findByName(searchButtonSelectorName);
     let searchInput = await this.findById("usernameId");
