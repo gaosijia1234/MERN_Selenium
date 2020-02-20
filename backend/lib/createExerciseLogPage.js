@@ -11,11 +11,9 @@ ExercisePage.prototype.findExerciseInputAndButton = async function () {
     datePicker = await this.findById('datePicker');
 
     createButton = await this.findById('createButton');
-    console.log("------------------------------ datePicker is ", datePicker);
     const result = await this.driver.wait(async function () {
-        // const searchButtonText = await searchButton.getAttribute('value');
+        
         const userNameSelectionEnableFlag = await userNameSelection.isEnabled();
-
         const descriptionInputEnableFlag = await descriptionInput.isEnabled();
         const durationInputEnableFlag = await durationInput.isEnabled();
         const datePickerEnableFlag = await datePicker.isEnabled();

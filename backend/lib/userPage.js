@@ -10,7 +10,7 @@ UserPage.prototype.findUserInputAndButton = async function () {
     searchButton = await this.findById("inputId");
 
     const result = await this.driver.wait(async function () {
-    
+
         const searchButtonText = await searchButton.getAttribute('value');
         const searchInputEnableFlag = await searchInput.isEnabled();
         return {
@@ -26,7 +26,7 @@ UserPage.prototype.submitUserPageKeywordAndGetResult = async function (id) {
     await this.findUserInputAndButton();
     await this.write(searchInput, fakeNameKeyword);
     await searchButton.click();
-    
+
     resultStat = await this.driver.wait(() => this.findThroughId(id), 5000);
 
     return await this.driver.wait(async function () {

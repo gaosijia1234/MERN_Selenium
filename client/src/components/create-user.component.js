@@ -40,12 +40,13 @@ export default class CreateUser extends Component {
     return (
       <div>
         <h3 id="CreateNewUserH3">Create New User</h3>
-        <span id="userAdded">{this.state.showUsername ? 'User created successfully!' : null}</span>
+        <span id="userAddedId">{this.state.showUsername ? 'User created successfully!' : null}</span>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label id="usernameId">Username: </label>
             <input type="text"
               required
+              id="usernameInputId"
               className="form-control"
               value={this.state.username}
               onChange={this.onChangeUsername}
