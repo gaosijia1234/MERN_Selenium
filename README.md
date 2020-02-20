@@ -1,4 +1,7 @@
 # mern-selenium
+### Set up step by step video: 
+
+https://www.youtube.com/watch?v=hUlqgWt_FGQ
 
 1. Open terminal and run the following commands (Backend setup)
    ```
