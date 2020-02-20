@@ -24,7 +24,7 @@
    cd client
 
    # Install dependencies
-   npm install
+   npm i
 
    # Start client application
    npm start
